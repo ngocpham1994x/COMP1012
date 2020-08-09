@@ -16,7 +16,7 @@ data = [] #data = [maxTemp's val,minTemp's val]
 
 lineNum=0
 
-reducedweather = open("reducedweather1.csv", 'r')
+reducedweather = open("reducedweather.csv", encoding = 'UTF-8-sig')
 headings = reducedweather.readline().strip().split(',')
 columnNum = len(headings)
 
@@ -125,7 +125,7 @@ else:
     if total % 10 == 0:
         print("Congrats! This is a valid SIN number.")
     else:
-        print("Unfortunately, this is NOT a valid SIN number.")
+        print("Unfortunately, after checking, this is NOT a valid SIN number.")
 
 
 

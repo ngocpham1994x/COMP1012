@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="" />
+  <title>COMP 1012: Lab 6</title>
+  <style>
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style>
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">COMP 1012: Lab 6</h1>
+<p class="author"></p>
+<p class="date">July 13<sup>th</sup> to July 17<sup>th</sup>, 2020</p>
+</header>
+<h1 id="material-covered">Material covered</h1>
+<ul>
+<li>Conditional statements</li>
+<li><code>while</code> loops</li>
+</ul>
+<h1 id="exercises">Exercises</h1>
+<h2 id="question-1-password-checking">Question 1: Password checking</h2>
+<p>You are presented with a file <a href="passwords.txt"  download><code>passwords.txt</code></a> where each line contains an email address followed by a password. The email address is separated from the password by a comma.</p>
+<p>Your job is to write a Python script (starting with the template <code>lab6q1.py</code>) to flag all passwords that are not secure (or insecure).</p>
+<p>A password is considered secure if it satisfies the following conditions:</p>
+<ul>
+<li>contains at least 8 characters,</li>
+<li>contains at least one numeric digit, and</li>
+<li>contains at least alphabet character.</li>
+</ul>
+<p>Otherwise, a password is not secure.</p>
+<p>Your Python script that will read in the file <code>passwords.txt</code> and for each insecure password, print the following information: * the line number in the file * the email address * the password * condition(s) password failed to be secure</p>
+<p>At the end, you should also print the number of email addresses with insecure passwords.</p>
+<p>For example, suppose the file <code>passwords.txt</code> contain the following lines:</p>
+<pre><code>Ben.Li@umanitoba.ca,abc123
+Joe.Blow@yahoo.com,ay799dkZ!
+John.Wong@gmail.com,mrcool
+Row.Fernando@hotmail.com,12345789
+Sheikh.Jubair@umanitoba.ca,ntyd888896
+Olivia.Li@gmail.com,8739!</code></pre>
+<p>Then the output should look like:</p>
+<pre><code>Invalid Passwords Detail:
+
+1) Ben.Li@umanitoba.ca,abc123:less than 8 characters
+3) John.Wong@gmail.com,mrcool:less than 8 characters, no digit
+4) Row.Fernando@hotmail.com,12345789:no alphabet character
+6) Olivia.Li@gmail.com,8739!:less than 8 characters, no alphabet character
+
+There were 4 emails with insecure passwords.
+</code></pre>
+<p>The file <code>lab5q1.py</code> contains two functions <code>hasNumbers(s)</code> and <code>hasAlpha(s)</code> which returns <code>True</code> if and only if <code>s</code> has a digit and alphabet character, respectively.</p>
+<h2 id="question-2-deduction-game">Question 2: Deduction Game</h2>
+<p>Write a game where a user has to guess a number from 1 – 99.</p>
+<p>Your program will generate a random number <strong>once</strong> (pick a number), and will then prompts the user to repeatedly guess the number until they get it correct.</p>
+<p>During the game, your program will test the number that the user entered compared to the number it picked. If the number that the user guessed is greater than the random number, tell the user “your guess is too low”. If the number that the user guessed is higher than the random number, tell the user, “your guess is too high”. Let the user continue guessing the number generated until they guess it right.</p>
+<p>Once the user has successfully guessed the number, tell the user they win, and tell them how many guesses it took them to guess it right.</p>
+<p>Use a loop to check your user input. Use string’s <a href="https://docs.python.org/3/library/stdtypes.html#str.isnumeric">.isnumeric()</a> to check to see if the user has provided you with a valid number before you use a cast to an integer. Your program <strong>should not</strong> crash if the user gives you bad input.</p>
+<p>To create a random number use:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="im">import</span> random</span>
+<span id="cb3-2"><a href="#cb3-2"></a>myRandomNumber <span class="op">=</span> random.randint(<span class="dv">1</span>, <span class="dv">99</span>)</span></code></pre></div>
+<p>Sample game:</p>
+<pre>
+I've picked a number between 1 and 99, can you guess it? <mark>50</mark>
+Nope, it's not 50
+Your guess is too low
+I've picked a number between 1 and 99, can you guess it? <mark>99</mark>
+Nope, it's not 99
+Your guess is too high
+I've picked a number between 1 and 99, can you guess it? <mark>42</mark>
+Nope, it's not 42
+Your guess is too low
+I've picked a number between 1 and 99, can you guess it? <mark>93</mark>
+Nope, it's not 93
+Your guess is too high
+I've picked a number between 1 and 99, can you guess it? <mark>83</mark>
+You got it!
+It took you 5 guesses.
+</pre>
+<h2 id="optional-new-and-improved-deduction-game">Optional: New and Improved Deduction Game</h2>
+<p>Once you’ve completed the guessing game, add some usability improvements. In the line that prompts the user for input, print the <em>known range</em> the random number could be in.</p>
+<p>Do not increase the range if the user guesses outside your range. Example, if the current range is 40 to 60, do not change them if the user guesses 100.</p>
+<p>Example:</p>
+<pre>
+Guess the number. 0 < _ < 100: <mark>50</mark>
+Guess the number. 0 < _ < 50: <mark>25</mark>
+Guess the number. 0 < _ < 25: <mark>12</mark>
+Guess the number. 12 < _ < 25: <mark>18</mark>
+Guess the number. 12 < _ < 18: <mark>14</mark>
+Guess the number. 14 < _ < 18: <mark>16</mark>
+Guess the number. 16 < _ < 18: <mark>17</mark>
+Congrats you guessed it in 7 tries
+</pre>
+<p><strong>Challenge</strong>: What’s the fewest number of guesses you have to make for <strong>any</strong> range of numbers? <em>Hint</em>: This is a <em>search algorithm</em> called a <strong>binary search</strong>.</p>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="" />
+  <title>COMP 1012: Lab 4</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">COMP 1012: Lab 4</h1>
+<p class="author"></p>
+<p class="date">June 29<sup>th</sup> to 3<sup>rd</sup> July, 2020</p>
+</header>
+<h1 id="material-covered">Material covered</h1>
+<ul>
+<li>Reading from a file</li>
+<li>for loops</li>
+<li>Processing data in a file with split</li>
+<li>Building lists</li>
+</ul>
+
+<h2 id="notes">Notes</h2>
+<p>You must save all your code as a script (use the interactive console to <em>test</em> your expressions, but save them in a file).</p>
+<h2 id="grading">Grading</h2>
+<p>Total marks is 2.</p>
+<p>You will receive 1 mark for attendence only if you stay until the end. If you have completed exercise 1 and 2 before the start of the lab, you can use the lab time to work on bonus question. You will either receive 0 or 1 mark for attendence.</p>
+<p><b>Note - </b>You do not have to successfully complete bonus question to get the attendence mark.</p>
+<p>You will receive 1 mark for correct solutions to <b>Exercise 1 and 2</b>. You will have to demonstrate your program to the teaching assistant. You will receive 0.5 for each exercise. Use only what have been taught in class or described in this lab.</p>
+<p><b>Important</b> We highly recommend that you try to do the lab questions 1,2 before the start of your lab. Use the lab time to ask for help if you get stuck.</p>
+<h1 id="exercises">Exercises</h1>
+<h2 id="standard-deviation">Exercise 1: Standard deviation</h2>
+<p>Open the file <a href="lab4.csv"><code>lab4.csv</code></a>. This file has 3 numbers per-line, separated by commas.</p>
+<p>Calculate the mean and standard deviation of <em>each</em> column of the file, using the formula:</p>
+<p><span class="math display">\[\sigma={\sqrt {\frac {\sum _{i=1}^{N}(x_{i}-{\overline {x}})^{2}}{N-1}}}\]</span></p>
+<p>Where <span class="math inline">\(\sigma\)</span> is standard deviation, <span class="math inline">\(\overline {x}\)</span> is the mean of the dataset, <span class="math inline">\(N\)</span> is the number of elements in the dataset, and <span class="math inline">\(x_{i}\)</span> is an element of the dataset at spot <span class="math inline">\(i\)</span>.</p>
+<p>You will need to:</p>
+<ol type="1">
+<li><code>open</code> the file.</li>
+<li>Initialize 3 <code>list</code> accumulators.</li>
+<li>Iterate over the lines of the file in a <code>for</code> loop and accumulate the values in the columns.</li>
+<li>Compute the average (either do this <em>inside</em> the loop with a running sum or use the <a href="https://docs.python.org/3/library/functions.html#sum" target="_blank"><code>sum</code> function</a> on your <code>list</code>s).</li>
+</ol>
+<p>Once you have the mean <span class="math inline">\(\overline{x}\)</span>, calculate the standard deviation using a second <code>for</code> loop.</p>
+<p>Your output should look like:</p>
+<pre><code>The mean of column 1 is 50.30, and the standard deviation is 28.81
+The mean of column 2 is 499.79, and the standard deviation is 290.16
+The mean of column 3 is 5011.12, and the standard deviation is 2874.15</code></pre>
+<h3 id="nested-lists"><em>Nested</em> <span class="emoji" data-emoji="baby_chick">🐤</span> <code>list</code>s</h3>
+<p>As an extra exercise, consider how to write this using <em>nested</em> <code>list</code>s. You may need to use the <code>range</code> function if you choose to solve this problem.</p>
+<h2 id="standard-deviations-from-the-mean">Exercise 2: Standard deviations from the mean</h2>
+<p>Add to your program from the previous part to ask for numerical input from the user. Find how many standard deviations from the mean the input is.</p>
+<p>The formula for deviations from the mean is:</p>
+<p><span class="math display">\[\text{deviationsFromMean} = \frac{|\overline{x} - x|}{\sigma}\]</span></p>
+<p>Where <span class="math inline">\(\sigma\)</span> is the standard deviation, <span class="math inline">\(\overline {x}\)</span> is the mean of the dataset, and <span class="math inline">\(x\)</span> is the data the user provided.</p>
+<pre>
+Give me a number : > <mark>50</mark>
+This number is 0000.0104 standard deviations from the mean for column 1.
+This number is 0001.5501 standard deviations from the mean for column 2.
+This number is 0001.7261 standard deviations from the mean for column 3.
+</pre>
+<h3 id="nested-lists-1"><em>Nested</em> <span class="emoji" data-emoji="baby_chick">🐤</span> <code>list</code>s</h3>
+<p>If you did the extra exercise for above, add to this part an option for the user to choose which column the standard deviation is calculated for.</p>
+<h1 id="optional-exercises">Optional exercises</h1>
+<h2 id="basic-if-usage">Basic <code>if</code> usage</h2>
+<p>Change your above code. Use an <code>if</code> statement to remove negative numbers, creating a standard deviation with only positive numbers (which we will define as greater than or equal to 0).</p>
+<h2 id="evens-only">Evens only</h2>
+<p>Change your if statement to only accept even numbers and positive. The data are decimal numbers, so we will define ‘even’ as “The 1s place is even”.</p>
+<h2 id ="saving">Saving your work</h2>
+<p>Save the files to the H: (Home) drive on your lab computer if you can; otherwise use the desktop or a USB drive. The desktop on a lab computer is stored on the computer itself, not on your network drive, so you should copy your files to a more permanent location before you leave. A good approach is to carry a thumb drive and plug it into the lab computer, using it to store your programs. Remember to take it with you!</p>
+<p>Or, students have access to cloud storage (OneDrive), accessible through your @myumanitoba account. Log in at <a href = "http://365.myumanitoba.ca">http://365.myumanitoba.ca</a>. Once logged in, click on the App Launcher at the top left hand side and select OneDrive. To save a file, simply drag it to the OneDrive screen.</p>
+</body>
+</html>
