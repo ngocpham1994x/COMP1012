@@ -101,6 +101,28 @@ reducedweather.close()
 
 #----------------------------------------------
 #Question 2: Optional
+'''
+Social Insurance Numbers (SINs) are issued by the Canadian Government for administering
+various government programs. For example, a SIN is required for reporting of earned income
+from employment. A SIN consists of 9 digits (eg. 046454286). Not all 9-digit numbers represent a
+valid SIN. There is a simple validation process to determine if a 9-digit number is a valid SIN.
+Below, we use an example will illustrate how the validation process works.
+Suppose the 9-digit number to be validated is 046454286. Take the number 121212121 and write
+it below 046454286 to get
+046454286
+121212121
+Next, for each of the 9 digit positions, multiply the top and bottom digit to get
+0 8 6 8 5 8 2 16 6
+Next, add up all the digits together (note that 16 contains the digits 1 and 6) to get
+0 + 8 + 6 + 8 + 5 + 8 + 2 + 1 + 6 + 6 = 50
+If the sum from the previous line is evenly divisible by 10 (that is, no remainder), then the 9-digit
+number is a valid SIN. If the sum from the previous line is not evenly divisible by 10, then it is not
+a valid SIN. For the example 9-digit number 046454286, it is a valid SIN, since 50 is evenly divisible
+by 10.
+Write a program that reads in a 9-digit number and determine if it is a valid SIN.
+Try your program with various 9-digit numbers including 630308902, 666234872, 056123456.
+'''
+
 print("***Question 2: Optional***")
 
 SIN = input("Please enter a SIN number: > ")

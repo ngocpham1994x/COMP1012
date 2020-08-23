@@ -7,6 +7,35 @@ Created on Tue Jul 28 07:59:40 2020
 
 #--------------------------------------------------------
 #Question 1 (Required): Estimating the volume of a Sphere
+'''
+Estimating the volume of a Sphere
+A sphere with a radius of 1 (centered at point the point (0,0,0) ) is given by the equation . 
+This unit sphere has volume (4/3)*pi
+If you restrict this sphere to non-negative values of x,y,z, then its volume is (pi/6) ,
+which is approximately 0.524 (we got this by dividing ((4/3)*pi)/8
+So if we were to generate a (uniformly) random point (x,y,z) in the cube [0,1)x[0,1)x[0,1) , 
+the point should have about a 52.4 % probability of landing inside the sphere because the unit cube has volume 1. 
+This means that we can approximate 𝜋  using the relative frequency of randomly generated points (x,y,z) 
+that lie in the sphere multiplied by 6.
+
+You are going to write a script that will estimate 𝜋 by following the following steps:
+
+1. Have a loop that runs TRIALS number of times, where TRIALS is the number of times we will generate points.
+For testing use 1,000,000 for TRIALS.
+2. Use random.random() to generate uniformly random values from the interval [0.0,1.0). 
+Generate one for x, one for y and one for z. This will be a give a random point (x,y,z) belongs to [0,1)x[0,1)x[0,1)
+3. With your random  point, see if the points are within the sphere. The point  are in the sphere if 
+4. Estimate 𝜋 with 𝜋 = 6*(number of points inside sphere)/(number of trials)
+ 
+Print out your estimation of 𝜋 , and the number of trials you did to get there.
+
+Example, created with seed of 1000, your output should look like:
+
+Estimating pi using (seed=1000)
+Number of trials: 1000000, estimation of pi: 3.133602
+'''
+
+
 
 print("**Question 1: \n")
 
@@ -85,6 +114,24 @@ print("|error| =  \n",math.fabs(pi-math.pi))
 
 #--------------------------------------------
 #Question 2 (Required): Rock, Paper, Scissors
+'''
+In general, both players randomly choose a signal from “rock”, “paper” and “scissors”. 
+Rock beats scissors, scissors beats paper, paper beats rock. 
+If both players choose the same signal, it is a “push”, and neither player wins.
+You can simulate a player’s choices by choosing from a list, where each element of the list 
+is a string that is either “rock”, “paper” or “scissors”. 
+Use random.choice to randomly choose an element from the list of signals.
+
+Create a simulation that runs 100 rounds of “Rock, Paper, Scissors” between 
+two players named “Right” and “Left”.
+Track how many times the right wins, how many times left wins, and how many pushes there are.
+
+Using the seed 42, your result should be:
+
+Simulating rock, paper, scissors (seed=42)
+Trials: 100, Left win %: 40.0, Right win %: 36.0, Push %: 24.0
+How would the results change if left only ever uses rock?
+'''
 
 print("**Question 2: using list \n")
 
