@@ -71,6 +71,8 @@ The course repo contains my own lines of code for laboratory and assginments.
 
 ## Python Cheatsheet::scroll:
 
+***Click on Readme.md file for better allignment***
+
 | commands | functionality |
 | ---| --- |
 | **Ranges** <br />`range(x)` <br />`range(x, y)` <br />`range(x, y, z)` |<br /># range from 0 up to and not including x <br /># range from x up to and not including y <br /># range from x up to and not including y, counting up by z |
